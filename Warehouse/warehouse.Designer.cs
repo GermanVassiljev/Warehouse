@@ -35,8 +35,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.product_box = new System.Windows.Forms.TextBox();
             this.category_box = new System.Windows.Forms.ComboBox();
-            this.price_box = new System.Windows.Forms.DomainUpDown();
-            this.quantity_box = new System.Windows.Forms.DomainUpDown();
             this.Add_Cat = new System.Windows.Forms.Button();
             this.Delete_Cat = new System.Windows.Forms.Button();
             this.Add_Product = new System.Windows.Forms.Button();
@@ -45,9 +43,13 @@
             this.grid = new System.Windows.Forms.DataGridView();
             this.warehouseDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.warehouseDBDataSet = new Warehouse.WarehouseDBDataSet();
+            this.quantity_box = new System.Windows.Forms.NumericUpDown();
+            this.price_box = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantity_box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.price_box)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -104,22 +106,6 @@
             this.category_box.Name = "category_box";
             this.category_box.Size = new System.Drawing.Size(124, 21);
             this.category_box.TabIndex = 5;
-            // 
-            // price_box
-            // 
-            this.price_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.price_box.Location = new System.Drawing.Point(173, 108);
-            this.price_box.Name = "price_box";
-            this.price_box.Size = new System.Drawing.Size(124, 26);
-            this.price_box.TabIndex = 6;
-            // 
-            // quantity_box
-            // 
-            this.quantity_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.quantity_box.Location = new System.Drawing.Point(173, 68);
-            this.quantity_box.Name = "quantity_box";
-            this.quantity_box.Size = new System.Drawing.Size(124, 26);
-            this.quantity_box.TabIndex = 7;
             // 
             // Add_Cat
             // 
@@ -197,19 +183,54 @@
             this.warehouseDBDataSet.DataSetName = "WarehouseDBDataSet";
             this.warehouseDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // quantity_box
+            // 
+            this.quantity_box.Location = new System.Drawing.Point(173, 73);
+            this.quantity_box.Name = "quantity_box";
+            this.quantity_box.Size = new System.Drawing.Size(124, 20);
+            this.quantity_box.TabIndex = 14;
+            this.quantity_box.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // price_box
+            // 
+            this.price_box.DecimalPlaces = 2;
+            this.price_box.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.price_box.Location = new System.Drawing.Point(173, 110);
+            this.price_box.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.price_box.Name = "price_box";
+            this.price_box.Size = new System.Drawing.Size(124, 20);
+            this.price_box.TabIndex = 15;
+            this.price_box.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            // 
             // warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.price_box);
+            this.Controls.Add(this.quantity_box);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.Update_Product);
             this.Controls.Add(this.Delete_Product);
             this.Controls.Add(this.Add_Product);
             this.Controls.Add(this.Delete_Cat);
             this.Controls.Add(this.Add_Cat);
-            this.Controls.Add(this.quantity_box);
-            this.Controls.Add(this.price_box);
             this.Controls.Add(this.category_box);
             this.Controls.Add(this.product_box);
             this.Controls.Add(this.label4);
@@ -221,6 +242,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantity_box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.price_box)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,8 +257,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox product_box;
         private System.Windows.Forms.ComboBox category_box;
-        private System.Windows.Forms.DomainUpDown price_box;
-        private System.Windows.Forms.DomainUpDown quantity_box;
         private System.Windows.Forms.Button Add_Cat;
         private System.Windows.Forms.Button Delete_Cat;
         private System.Windows.Forms.Button Add_Product;
@@ -244,5 +265,7 @@
         private System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.BindingSource warehouseDBDataSetBindingSource;
         private WarehouseDBDataSet warehouseDBDataSet;
+        private System.Windows.Forms.NumericUpDown quantity_box;
+        private System.Windows.Forms.NumericUpDown price_box;
     }
 }

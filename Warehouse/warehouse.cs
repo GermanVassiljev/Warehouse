@@ -22,6 +22,7 @@ namespace Warehouse
             InitializeComponent();
             MainDataBase();
         }
+        //Не показывает данные в grid
         public void MainDataBase()
         {
             connect.Open();
@@ -51,19 +52,28 @@ namespace Warehouse
         }
 
         private void Add_Cat_Click(object sender, EventArgs e)
-        {           
-            connect.Open();
+        {
+            if (category_box.Text=="" ||
+                category_box.Text == " ")
+            {
+                MessageBox.Show("Insert text please.");
+            }
+            else
+            {
+                connect.Open();
 
-            cmd = new SqlCommand("INSERT INTO Category (Name) VALUES (@cat)", connect);
-            cmd.Parameters.AddWithValue("@cat", category_box.Text);
-            cmd.ExecuteNonQuery();
+                cmd = new SqlCommand("INSERT INTO Category (Name) VALUES (@cat)", connect);
+                cmd.Parameters.AddWithValue("@cat", category_box.Text);
+                cmd.ExecuteNonQuery();
 
-            connect.Close();
-            CLearBoxes();
-            MainDataBase();
-            MessageBox.Show("Category was added");
+                connect.Close();
+                CLearBoxes();
+                MainDataBase();
+                MessageBox.Show("Category was added");
+            }
+            
         }
-
+        //Имеется ошибка с базой данных, где неправильное занчение Id для Category
         private void Add_Product_Click(object sender, EventArgs e)
         {
             if (product_box.Text.Trim() != string.Empty &&
@@ -71,31 +81,31 @@ namespace Warehouse
                 price_box.Text.Trim() != string.Empty &&
                 category_box.SelectedItem != null)
             {
-                try
-                {
+                //try
+                //{
                     cmd = new SqlCommand("INSERT INTO Products (Name,Quantity,Price,Category_Id) VALUES (@name,@quantity,@price,@cat)", connect);
                     connect.Open();
                     cmd.Parameters.AddWithValue("@name", product_box.Text);
-                    cmd.Parameters.AddWithValue("@quantity", quantity_box.Text);
-                    cmd.Parameters.AddWithValue("@price", price_box.Text);
+                    cmd.Parameters.AddWithValue("@quantity", quantity_box.Value);
+                    cmd.Parameters.AddWithValue("@price", price_box.Value);
                     cmd.Parameters.AddWithValue("@cat", category_box.SelectedIndex + 1);
                     cmd.ExecuteNonQuery();
                     connect.Close();
                     CLearBoxes();
                     MainDataBase();
                     MessageBox.Show("Product was added");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Error");
-                }
+                //}
+                //catch (Exception)
+                //{
+                    //MessageBox.Show("ERROR:");
+                //}
             }
             else
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Write values please.");
             }
         }
-
+        //Не проверено
         private void Update_Product_Click(object sender, EventArgs e)
         {
             if (product_box.Text.Trim() != string.Empty &&
@@ -119,7 +129,7 @@ namespace Warehouse
                 MessageBox.Show("Error");
             }
         }
-
+        //Не проверено
         private void Delete_Product_Click(object sender, EventArgs e)
         {
             if (grid.SelectedRows.Count == 0)
@@ -144,14 +154,14 @@ namespace Warehouse
         }
 
         private void Delete_Cat_Click(object sender, EventArgs e)
-        {
+        {            
+            if (category_box.Text == "" ||
+                category_box.Text == " ") return;
             connect.Open();
-            if (category_box.Text == "") return;
-
             string sql = "DELETE FROM Category WHERE Name = @cat";
             using (SqlCommand deleteRecord = new SqlCommand(sql, connect))
             {
-                deleteRecord.Parameters.AddWithValue("@kat", category_box.Text);
+                deleteRecord.Parameters.AddWithValue("@cat", category_box.Text);
                 deleteRecord.ExecuteNonQuery();
             }
             category_box.SelectedIndex = -1;
@@ -159,7 +169,7 @@ namespace Warehouse
             CLearBoxes();
             MainDataBase();
         }
-
+        //Не проверено
         private void grid_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             Id = (int)(grid.Rows[e.RowIndex].Cells[0].Value);
