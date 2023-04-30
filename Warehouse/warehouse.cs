@@ -13,7 +13,7 @@ namespace Warehouse
 {
     public partial class warehouse : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\PC\source\repos\Warehouse\Warehouse\AppData\WarehouseDB.mdf;Integrated Security=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\AppData\WarehouseDB.mdf;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter adapter, adapter_cat;
         int Id;
