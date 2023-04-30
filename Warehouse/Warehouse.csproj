@@ -78,6 +78,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WarehouseDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="WarehouseDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WarehouseDBDataSet1.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -95,6 +100,17 @@
     </None>
     <None Include="WarehouseDBDataSet.xss">
       <DependentUpon>WarehouseDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="WarehouseDBDataSet1.xsc">
+      <DependentUpon>WarehouseDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="WarehouseDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WarehouseDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WarehouseDBDataSet1.xss">
+      <DependentUpon>WarehouseDBDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
