@@ -41,15 +41,16 @@
             this.Delete_Product = new System.Windows.Forms.Button();
             this.Update_Product = new System.Windows.Forms.Button();
             this.warehouseDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.warehouseDBDataSet = new Warehouse.WarehouseDBDataSet();
             this.quantity_box = new System.Windows.Forms.NumericUpDown();
             this.price_box = new System.Windows.Forms.NumericUpDown();
             this.grid = new System.Windows.Forms.DataGridView();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.picBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantity_box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price_box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -173,16 +174,6 @@
             this.Update_Product.UseVisualStyleBackColor = true;
             this.Update_Product.Click += new System.EventHandler(this.Update_Product_Click);
             // 
-            // warehouseDBDataSetBindingSource
-            // 
-            this.warehouseDBDataSetBindingSource.DataSource = this.warehouseDBDataSet;
-            this.warehouseDBDataSetBindingSource.Position = 0;
-            // 
-            // warehouseDBDataSet
-            // 
-            this.warehouseDBDataSet.DataSetName = "WarehouseDBDataSet";
-            this.warehouseDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // quantity_box
             // 
             this.quantity_box.Location = new System.Drawing.Point(260, 112);
@@ -229,12 +220,34 @@
             this.grid.RowHeadersWidth = 62;
             this.grid.Size = new System.Drawing.Size(930, 334);
             this.grid.TabIndex = 16;
+            this.grid.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grid_RowHeaderMouseClick);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(499, 46);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(683, 169);
+            this.pictureBox.TabIndex = 17;
+            this.pictureBox.TabStop = false;
+            // 
+            // picBtn
+            // 
+            this.picBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.picBtn.Location = new System.Drawing.Point(980, 223);
+            this.picBtn.Name = "picBtn";
+            this.picBtn.Size = new System.Drawing.Size(202, 42);
+            this.picBtn.TabIndex = 18;
+            this.picBtn.Text = "Select picture";
+            this.picBtn.UseVisualStyleBackColor = true;
+            this.picBtn.Click += new System.EventHandler(this.picBtn_Click);
             // 
             // warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.picBtn);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.price_box);
             this.Controls.Add(this.quantity_box);
@@ -253,10 +266,10 @@
             this.Name = "warehouse";
             this.Text = "warehouse";
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantity_box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.price_box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,9 +289,10 @@
         private System.Windows.Forms.Button Delete_Product;
         private System.Windows.Forms.Button Update_Product;
         private System.Windows.Forms.BindingSource warehouseDBDataSetBindingSource;
-        private WarehouseDBDataSet warehouseDBDataSet;
         private System.Windows.Forms.NumericUpDown quantity_box;
         private System.Windows.Forms.NumericUpDown price_box;
         private System.Windows.Forms.DataGridView grid;
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.Button picBtn;
     }
 }
