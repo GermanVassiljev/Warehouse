@@ -78,15 +78,13 @@ namespace Warehouse
                     cmd.Parameters.AddWithValue("@name", product_box.Text);
                     cmd.Parameters.AddWithValue("@quant", quantity_box.Value);
                     cmd.Parameters.AddWithValue("@price", price_box.Value.ToString().Replace(",", "."));
-
                     using (SqlCommand command = new SqlCommand("SELECT Id FROM Category WHERE Cat_Name=@cat", connect))
                     {
-                        // Add a parameter to the SqlCommand
                         command.Parameters.AddWithValue("@cat", category_box.Text);
 
                         string result = Convert.ToString(command.ExecuteScalar());
 
-                        // Compare the result with a string
+                        // Добавляет параметр. Вноситься Id, а не стринг из category_box
                         cmd.Parameters.AddWithValue("@cat", int.Parse(result));
                     }
                     //string file_pilt = nimeBox.Text + ".jpg";
