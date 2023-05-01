@@ -22,7 +22,6 @@ namespace Warehouse
             InitializeComponent();
             MainDataBase();
         }
-        //Не показывает данные в grid
         public void MainDataBase()
         {
             connect.Open();

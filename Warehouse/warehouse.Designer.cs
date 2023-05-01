@@ -40,16 +40,16 @@
             this.Add_Product = new System.Windows.Forms.Button();
             this.Delete_Product = new System.Windows.Forms.Button();
             this.Update_Product = new System.Windows.Forms.Button();
-            this.grid = new System.Windows.Forms.DataGridView();
             this.warehouseDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.warehouseDBDataSet = new Warehouse.WarehouseDBDataSet();
             this.quantity_box = new System.Windows.Forms.NumericUpDown();
             this.price_box = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
+            this.grid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantity_box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price_box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -162,17 +162,6 @@
             this.Update_Product.UseVisualStyleBackColor = true;
             this.Update_Product.Click += new System.EventHandler(this.Update_Product_Click);
             // 
-            // grid
-            // 
-            this.grid.AutoGenerateColumns = false;
-            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.DataSource = this.warehouseDBDataSetBindingSource;
-            this.grid.Location = new System.Drawing.Point(12, 207);
-            this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(509, 150);
-            this.grid.TabIndex = 13;
-            this.grid.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grid_RowHeaderMouseClick);
-            // 
             // warehouseDBDataSetBindingSource
             // 
             this.warehouseDBDataSetBindingSource.DataSource = this.warehouseDBDataSet;
@@ -218,14 +207,22 @@
             0,
             131072});
             // 
+            // grid
+            // 
+            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid.Location = new System.Drawing.Point(34, 203);
+            this.grid.Name = "grid";
+            this.grid.Size = new System.Drawing.Size(613, 235);
+            this.grid.TabIndex = 16;
+            // 
             // warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.grid);
             this.Controls.Add(this.price_box);
             this.Controls.Add(this.quantity_box);
-            this.Controls.Add(this.grid);
             this.Controls.Add(this.Update_Product);
             this.Controls.Add(this.Delete_Product);
             this.Controls.Add(this.Add_Product);
@@ -239,11 +236,11 @@
             this.Controls.Add(this.label1);
             this.Name = "warehouse";
             this.Text = "warehouse";
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantity_box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.price_box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,10 +259,10 @@
         private System.Windows.Forms.Button Add_Product;
         private System.Windows.Forms.Button Delete_Product;
         private System.Windows.Forms.Button Update_Product;
-        private System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.BindingSource warehouseDBDataSetBindingSource;
         private WarehouseDBDataSet warehouseDBDataSet;
         private System.Windows.Forms.NumericUpDown quantity_box;
         private System.Windows.Forms.NumericUpDown price_box;
+        private System.Windows.Forms.DataGridView grid;
     }
 }
