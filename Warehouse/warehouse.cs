@@ -22,7 +22,7 @@ namespace Warehouse
             InitializeComponent();
             MainDataBase();
         }
-        //Не показывает данные в grid
+
         public void MainDataBase()
         {
             connect.Open();
@@ -88,7 +88,7 @@ namespace Warehouse
                     cmd.Parameters.AddWithValue("@name", product_box.Text);
                     cmd.Parameters.AddWithValue("@quantity", quantity_box.Value);
                     cmd.Parameters.AddWithValue("@price", price_box.Value);
-                    cmd.Parameters.AddWithValue("@cat", category_box.SelectedIndex + 1);
+                    cmd.Parameters.AddWithValue("@cat", category_box.SelectedIndex);
                     cmd.ExecuteNonQuery();
                     connect.Close();
                     CLearBoxes();
