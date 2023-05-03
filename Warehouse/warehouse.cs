@@ -16,7 +16,7 @@ namespace Warehouse
 {
     public partial class warehouse : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\AppData\WarehouseDB (1).mdf;Integrated Security=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vafle\source\repos\Warehouse\Warehouse\AppData\WarehouseDB (1).mdf;Integrated Security=True");
         SqlCommand cmd, cmdcheckId, cmdcheckCat_Name, cmdCheck;
         SqlDataAdapter adapter_toode, adapter_kat;
         OpenFileDialog piltValiDialog;
