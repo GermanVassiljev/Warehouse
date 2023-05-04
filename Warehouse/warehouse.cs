@@ -16,7 +16,8 @@ namespace Warehouse
 {
     public partial class warehouse : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vafle\source\repos\Warehouse\Warehouse\AppData\WarehouseDB (1).mdf;Integrated Security=True");
+        string connectPath = System.Environment.CurrentDirectory+ "\\AppData\\WarehouseDB_1.mdf";
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\Warehouse\Warehouse\AppData\WarehouseDB_1.mdf;Integrated Security=True");
         SqlCommand cmd, cmdcheckId, cmdcheckCat_Name, cmdCheck;
         SqlDataAdapter adapter_toode, adapter_kat;
         OpenFileDialog piltValiDialog;
@@ -26,7 +27,7 @@ namespace Warehouse
             InitializeComponent();
             Naita_Andmed();
         }
-
+        
         public void Naita_Kategooria()
         {
             connect.Open();
@@ -155,24 +156,24 @@ namespace Warehouse
             if (product_box.Text.Trim() != string.Empty && quantity_box.Text.Trim() != string.Empty &&
                 price_box.Text.Trim() != string.Empty && category_box.SelectedItem != null) //&& Int32.Parse(hindBox.Text) > 0
             {
-                try
-                {
+                //try
+                //{
                     cmd = new SqlCommand("INSERT INTO Products (Name,Quantity,Price,Category_Id)" +
                         " VALUES (@name,@quant,@price,@cat)", connect);
                     connect.Open();
                     cmd.Parameters.AddWithValue("@name", product_box.Text);
                     cmd.Parameters.AddWithValue("@quant", quantity_box.Text);
-                    cmd.Parameters.AddWithValue("@price", price_box.Text);
+                    cmd.Parameters.AddWithValue("@price", price_box.Value.ToString().Replace(",", "."));
                     cmd.Parameters.AddWithValue("@cat", category_box.SelectedIndex);
                     cmd.ExecuteNonQuery();
                     connect.Close();
                     Kustuta_Andmed();
                     Naita_Andmed();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Database error");
-                }
+                //}
+                //catch (Exception)
+                //{
+                //    MessageBox.Show("Database error");
+                //}
             }
             else
             {

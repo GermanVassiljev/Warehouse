@@ -87,9 +87,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppData\WarehouseDB %281%29.mdf" />
-    <Content Include="AppData\WarehouseDB %281%29_log.ldf">
-      <DependentUpon>WarehouseDB %281%29.mdf</DependentUpon>
+    <Content Include="AppData\WarehouseDB_1.mdf" />
+    <Content Include="AppData\WarehouseDB_1_log.ldf">
+      <DependentUpon>WarehouseDB_1.mdf</DependentUpon>
     </Content>
     <Content Include="images\Info.png" />
   </ItemGroup>

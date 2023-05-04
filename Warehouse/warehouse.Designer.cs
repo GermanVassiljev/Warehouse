@@ -219,10 +219,11 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(562, 11);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox.Location = new System.Drawing.Point(526, 11);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(207, 182);
+            this.pictureBox.Size = new System.Drawing.Size(180, 180);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 17;
             this.pictureBox.TabStop = false;
             // 
@@ -230,7 +231,7 @@
             // 
             this.picBtn.Font = new System.Drawing.Font("NSimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.picBtn.Location = new System.Drawing.Point(644, 203);
-            this.picBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picBtn.Margin = new System.Windows.Forms.Padding(2);
             this.picBtn.Name = "picBtn";
             this.picBtn.Size = new System.Drawing.Size(125, 63);
             this.picBtn.TabIndex = 18;
