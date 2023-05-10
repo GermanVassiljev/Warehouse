@@ -151,6 +151,11 @@ namespace Warehouse
             }
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void Add_Product_Click(object sender, EventArgs e)
         {
             if (product_box.Text.Trim() != string.Empty && quantity_box.Text.Trim() != string.Empty &&
