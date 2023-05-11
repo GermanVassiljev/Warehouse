@@ -121,6 +121,14 @@ namespace Warehouse
                 saveValiDialog.FileName = product_box.Text + Path.GetExtension(piltValiDialog.FileName); //".jpg";            
                 saveValiDialog.Filter = "Image Files" + Path.GetExtension(piltValiDialog.FileName) + "|" + Path.GetExtension(piltValiDialog.FileName);
 
+                cmd = new SqlCommand("UPDATE Products SET Picture=@pic WHERE Id=@id", connect); //,Pilt = @pilt ,Category_Id=@cat
+                connect.Open();
+                cmd.Parameters.AddWithValue("@id", IdProduct);
+                cmd.Parameters.AddWithValue("@pic", saveValiDialog.FileName);
+                cmd.ExecuteNonQuery();
+                connect.Close();
+                Naita_Andmed();
+                Kustuta_Andmed();
 
                 if (saveValiDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -161,8 +169,8 @@ namespace Warehouse
             if (product_box.Text.Trim() != string.Empty && quantity_box.Text.Trim() != string.Empty &&
                 price_box.Text.Trim() != string.Empty && category_box.SelectedItem != null) //&& Int32.Parse(hindBox.Text) > 0
             {
-                //try
-                //{
+                try
+                {
                     cmd = new SqlCommand("INSERT INTO Products (Name,Quantity,Price,Category_Id)" +
                         " VALUES (@name,@quant,@price,@cat)", connect);
                     connect.Open();
@@ -174,11 +182,11 @@ namespace Warehouse
                     connect.Close();
                     Kustuta_Andmed();
                     Naita_Andmed();
-                //}
-                //catch (Exception)
-                //{
-                //    MessageBox.Show("Database error");
-                //}
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Database error");
+                }
             }
             else
             {
