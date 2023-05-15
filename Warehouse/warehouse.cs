@@ -17,7 +17,7 @@ namespace Warehouse
     public partial class warehouse : Form
     {
         string connectPath = System.Environment.CurrentDirectory+ "\\AppData\\WarehouseDB_1.mdf";
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\Warehouse\Warehouse\AppData\WarehouseDB_1.mdf;Integrated Security=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\PC\Source\Repos\Warehouse\Warehouse\AppData\WarehouseDB_1.mdf;Integrated Security=True");
         SqlCommand cmd, cmdcheckId, cmdcheckCat_Name, cmdCheck;
         SqlDataAdapter adapter_toode, adapter_kat;
         OpenFileDialog piltValiDialog;
@@ -128,7 +128,6 @@ namespace Warehouse
                 cmd.ExecuteNonQuery();
                 connect.Close();
                 Naita_Andmed();
-                Kustuta_Andmed();
 
                 if (saveValiDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -171,12 +170,13 @@ namespace Warehouse
             {
                 try
                 {
-                    cmd = new SqlCommand("INSERT INTO Products (Name,Quantity,Price,Category_Id)" +
-                        " VALUES (@name,@quant,@price,@cat)", connect);
+                    cmd = new SqlCommand("INSERT INTO Products (Name,Quantity,Price,Picture,Category_Id)" +
+                        " VALUES (@name,@quant,@price,@picture,@cat)", connect);
                     connect.Open();
                     cmd.Parameters.AddWithValue("@name", product_box.Text);
                     cmd.Parameters.AddWithValue("@quant", quantity_box.Text);
                     cmd.Parameters.AddWithValue("@price", price_box.Value.ToString().Replace(",", "."));
+                    cmd.Parameters.AddWithValue("@picture", product_box.Text+".png");
                     cmd.Parameters.AddWithValue("@cat", category_box.SelectedIndex);
                     cmd.ExecuteNonQuery();
                     connect.Close();
