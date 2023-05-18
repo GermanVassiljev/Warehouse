@@ -17,7 +17,7 @@ namespace Warehouse
     public partial class warehouse : Form
     {
         string connectPath = System.Environment.CurrentDirectory+ "\\AppData\\WarehouseDB_1.mdf";
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\PC\Source\Repos\Warehouse\Warehouse\AppData\WarehouseDB_1.mdf;Integrated Security=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\Warehouse\Warehouse\AppData\WarehouseDB_1.mdf;Integrated Security=True");
         SqlCommand cmd, cmdcheckId, cmdcheckCat_Name, cmdCheck;
         SqlDataAdapter adapter_toode, adapter_kat;
         OpenFileDialog piltValiDialog;
@@ -27,16 +27,20 @@ namespace Warehouse
             InitializeComponent();
             Naita_Andmed();
         }
-        
+        int i = 1; // ©Kevin
         public void Naita_Kategooria()
         {
             connect.Open();
             adapter_kat = new SqlDataAdapter("SELECT Cat_Name FROM Category", connect);
             DataTable dt_kat = new DataTable();
             adapter_kat.Fill(dt_kat);
-            foreach (DataRow nimetus in dt_kat.Rows)
+            if (i > 0) // ©Kevin
             {
-                category_box.Items.Add(nimetus["Cat_Name"]);
+                foreach (DataRow nimetus in dt_kat.Rows)
+                {
+                    category_box.Items.Add(nimetus["Cat_Name"]);
+                }
+                i -= 2; // ©Kevin
             }
             connect.Close();
         }
@@ -60,7 +64,7 @@ namespace Warehouse
             product_box.Text = "";
             price_box.Text = "";
             quantity_box.Text = "";
-            category_box.Items.Clear();
+            category_box.Text = ""; // ©Kevin
         }
 
         int IdProduct;
@@ -79,15 +83,17 @@ namespace Warehouse
                     cmd.Parameters.AddWithValue("@name", product_box.Text);
                     cmd.Parameters.AddWithValue("@quant", quantity_box.Value);
                     cmd.Parameters.AddWithValue("@price", price_box.Value.ToString().Replace(",", "."));
-                    using (SqlCommand command = new SqlCommand("SELECT Id FROM Category WHERE Cat_Name=@cat", connect))
-                    {
-                        command.Parameters.AddWithValue("@cat", category_box.Text);
+                    cmd.Parameters.AddWithValue("@cat", category_box.SelectedIndex + 1);
+                    category_boxError = category_box.Text; // ©Kevin
+                    //using (SqlCommand command = new SqlCommand("SELECT Id FROM Category WHERE Cat_Name=@cat2", connect))
+                    //{
+                    //    command.Parameters.AddWithValue("@cat2", category_box.Text);
 
-                        string result = Convert.ToString(command.ExecuteScalar());
+                    //    string result = Convert.ToString(command.ExecuteScalar()); 
 
-                        // Добавляет параметр. Вноситься Id, а не стринг из category_box
-                        cmd.Parameters.AddWithValue("@cat", int.Parse(result));
-                    }
+                    //    // Добавляет параметр. Вноситься Id, а не стринг из category_box
+                    //    cmd.Parameters.AddWithValue("@cat1", int.Parse(result));
+                    //}
                     //string file_pilt = nimeBox.Text + ".jpg";
                     //cmd.Parameters.AddWithValue("@pilt", file_pilt); 
                     cmd.ExecuteNonQuery();
@@ -177,7 +183,7 @@ namespace Warehouse
                     cmd.Parameters.AddWithValue("@quant", quantity_box.Text);
                     cmd.Parameters.AddWithValue("@price", price_box.Value.ToString().Replace(",", "."));
                     cmd.Parameters.AddWithValue("@picture", product_box.Text+".png");
-                    cmd.Parameters.AddWithValue("@cat", category_box.SelectedIndex);
+                    cmd.Parameters.AddWithValue("@cat", category_box.SelectedIndex + 1);
                     cmd.ExecuteNonQuery();
                     connect.Close();
                     Kustuta_Andmed();
@@ -226,13 +232,16 @@ namespace Warehouse
             Kustuta_Andmed();
             Naita_Kategooria();
         }
-
+        string category_boxError = ""; // ©Kevin
         private void grid_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             IdProduct = (int)grid.Rows[e.RowIndex].Cells[0].Value;
             product_box.Text = grid.Rows[e.RowIndex].Cells[1].Value.ToString();
             quantity_box.Text = grid.Rows[e.RowIndex].Cells[2].Value.ToString();
             price_box.Text = grid.Rows[e.RowIndex].Cells[3].Value.ToString();
+            string v = grid.Rows[e.RowIndex].Cells[5].Value.ToString();
+            category_box.Text = category_boxError; // ©Kevin
+            category_box.SelectedIndex = Int32.Parse(v) - 1;
             try
             {
                 pictureBox.Image = Image.FromFile(@"..\..\images\" + grid.Rows[e.RowIndex].Cells[4].Value.ToString());
@@ -244,8 +253,6 @@ namespace Warehouse
                 pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 MessageBox.Show("Fail puudub");
             }
-            string v = grid.Rows[e.RowIndex].Cells[5].Value.ToString();
-            category_box.SelectedIndex = Int32.Parse(v) - 1;
         }
     }
 }
