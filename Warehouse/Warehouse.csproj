@@ -96,7 +96,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images\d.png" />
     <Content Include="images\Info.png" />
   </ItemGroup>
   <ItemGroup>

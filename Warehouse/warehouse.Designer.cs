@@ -57,6 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(13)))));
             this.label1.Location = new System.Drawing.Point(30, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(133, 23);
@@ -68,6 +69,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(13)))));
             this.label2.Location = new System.Drawing.Point(54, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 23);
@@ -78,6 +80,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(13)))));
             this.label3.Location = new System.Drawing.Point(67, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 23);
@@ -88,6 +91,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(13)))));
             this.label4.Location = new System.Drawing.Point(54, 149);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 23);
@@ -113,20 +117,23 @@
             // 
             // Add_Cat
             // 
+            this.Add_Cat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(205)))), ((int)(((byte)(173)))));
             this.Add_Cat.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add_Cat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(13)))));
             this.Add_Cat.Location = new System.Drawing.Point(313, 36);
             this.Add_Cat.Name = "Add_Cat";
             this.Add_Cat.Size = new System.Drawing.Size(121, 63);
             this.Add_Cat.TabIndex = 8;
             this.Add_Cat.Text = "Add category";
-            this.Add_Cat.UseVisualStyleBackColor = true;
+            this.Add_Cat.UseVisualStyleBackColor = false;
             this.Add_Cat.Click += new System.EventHandler(this.Add_Cat_Click);
             // 
             // Delete_Cat
             // 
-            this.Delete_Cat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.Delete_Cat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(104)))), ((int)(((byte)(69)))));
             this.Delete_Cat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Delete_Cat.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Delete_Cat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(206)))));
             this.Delete_Cat.Location = new System.Drawing.Point(313, 110);
             this.Delete_Cat.Name = "Delete_Cat";
             this.Delete_Cat.Size = new System.Drawing.Size(121, 63);
@@ -137,20 +144,23 @@
             // 
             // Add_Product
             // 
+            this.Add_Product.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(205)))), ((int)(((byte)(173)))));
             this.Add_Product.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add_Product.Location = new System.Drawing.Point(644, 281);
+            this.Add_Product.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(13)))));
+            this.Add_Product.Location = new System.Drawing.Point(644, 271);
             this.Add_Product.Name = "Add_Product";
-            this.Add_Product.Size = new System.Drawing.Size(125, 28);
+            this.Add_Product.Size = new System.Drawing.Size(125, 38);
             this.Add_Product.TabIndex = 10;
             this.Add_Product.Text = "Add product";
-            this.Add_Product.UseVisualStyleBackColor = true;
+            this.Add_Product.UseVisualStyleBackColor = false;
             this.Add_Product.Click += new System.EventHandler(this.Add_Product_Click);
             // 
             // Delete_Product
             // 
-            this.Delete_Product.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.Delete_Product.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(104)))), ((int)(((byte)(69)))));
             this.Delete_Product.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Delete_Product.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Delete_Product.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(206)))));
             this.Delete_Product.Location = new System.Drawing.Point(644, 315);
             this.Delete_Product.Name = "Delete_Product";
             this.Delete_Product.Size = new System.Drawing.Size(125, 44);
@@ -161,13 +171,15 @@
             // 
             // Update_Product
             // 
+            this.Update_Product.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(205)))), ((int)(((byte)(173)))));
             this.Update_Product.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Update_Product.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(13)))));
             this.Update_Product.Location = new System.Drawing.Point(644, 365);
             this.Update_Product.Name = "Update_Product";
             this.Update_Product.Size = new System.Drawing.Size(125, 42);
             this.Update_Product.TabIndex = 12;
             this.Update_Product.Text = "Update product";
-            this.Update_Product.UseVisualStyleBackColor = true;
+            this.Update_Product.UseVisualStyleBackColor = false;
             this.Update_Product.Click += new System.EventHandler(this.Update_Product_Click);
             // 
             // quantity_box
@@ -209,7 +221,7 @@
             // 
             // grid
             // 
-            this.grid.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+            this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(201)))), ((int)(((byte)(203)))));
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Location = new System.Drawing.Point(9, 203);
             this.grid.Name = "grid";
@@ -230,21 +242,23 @@
             // 
             // picBtn
             // 
+            this.picBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(205)))), ((int)(((byte)(173)))));
             this.picBtn.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.picBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(13)))));
             this.picBtn.Location = new System.Drawing.Point(644, 203);
             this.picBtn.Margin = new System.Windows.Forms.Padding(2);
             this.picBtn.Name = "picBtn";
             this.picBtn.Size = new System.Drawing.Size(125, 63);
             this.picBtn.TabIndex = 18;
             this.picBtn.Text = "Select picture";
-            this.picBtn.UseVisualStyleBackColor = true;
+            this.picBtn.UseVisualStyleBackColor = false;
             this.picBtn.Click += new System.EventHandler(this.picBtn_Click);
             // 
             // warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(249)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.picBtn);
             this.Controls.Add(this.pictureBox);
