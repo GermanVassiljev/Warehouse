@@ -96,11 +96,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="database\TextFile1.txt" />
-    <Content Include="database\WarehouseDB_1.mdf">
+    <Content Include="AppData\WarehouseDB_1.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="database\WarehouseDB_1_log.ldf">
+    <Content Include="AppData\WarehouseDB_1_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>WarehouseDB_1.mdf</DependentUpon>
     </Content>
