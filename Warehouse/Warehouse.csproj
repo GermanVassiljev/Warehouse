@@ -96,6 +96,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="database\TextFile1.txt" />
+    <Content Include="database\WarehouseDB_1.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="database\WarehouseDB_1_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>WarehouseDB_1.mdf</DependentUpon>
+    </Content>
     <Content Include="images\Info.png" />
   </ItemGroup>
   <ItemGroup>
@@ -110,8 +118,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AppData\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
