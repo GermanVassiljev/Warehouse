@@ -49,7 +49,7 @@ namespace Warehouse
         {
             connect.Open();
             DataTable dt_toode = new DataTable();
-            adapter_toode = new SqlDataAdapter("SELECT * FROM Products", connect);
+            adapter_toode = new SqlDataAdapter("SELECT Name,Quantity,Price, t2.Cat_Name, Picture FROM Products t1 INNER JOIN Category t2 ON t1.Category_Id = t2.Id", connect);
             adapter_toode.Fill(dt_toode);
             grid.DataSource = dt_toode;
 
