@@ -46,6 +46,7 @@
             this.grid = new System.Windows.Forms.DataGridView();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.picBtn = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantity_box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price_box)).BeginInit();
@@ -147,7 +148,7 @@
             this.Add_Product.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(205)))), ((int)(((byte)(173)))));
             this.Add_Product.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add_Product.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(13)))));
-            this.Add_Product.Location = new System.Drawing.Point(644, 271);
+            this.Add_Product.Location = new System.Drawing.Point(643, 317);
             this.Add_Product.Name = "Add_Product";
             this.Add_Product.Size = new System.Drawing.Size(125, 38);
             this.Add_Product.TabIndex = 10;
@@ -161,7 +162,7 @@
             this.Delete_Product.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Delete_Product.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Delete_Product.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(206)))));
-            this.Delete_Product.Location = new System.Drawing.Point(644, 315);
+            this.Delete_Product.Location = new System.Drawing.Point(643, 361);
             this.Delete_Product.Name = "Delete_Product";
             this.Delete_Product.Size = new System.Drawing.Size(125, 44);
             this.Delete_Product.TabIndex = 11;
@@ -174,7 +175,7 @@
             this.Update_Product.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(205)))), ((int)(((byte)(173)))));
             this.Update_Product.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Update_Product.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(13)))));
-            this.Update_Product.Location = new System.Drawing.Point(644, 365);
+            this.Update_Product.Location = new System.Drawing.Point(643, 411);
             this.Update_Product.Name = "Update_Product";
             this.Update_Product.Size = new System.Drawing.Size(125, 42);
             this.Update_Product.TabIndex = 12;
@@ -226,7 +227,7 @@
             this.grid.Location = new System.Drawing.Point(9, 203);
             this.grid.Name = "grid";
             this.grid.RowHeadersWidth = 62;
-            this.grid.Size = new System.Drawing.Size(620, 217);
+            this.grid.Size = new System.Drawing.Size(620, 251);
             this.grid.TabIndex = 16;
             this.grid.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grid_RowHeaderMouseClick);
             // 
@@ -245,7 +246,7 @@
             this.picBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(205)))), ((int)(((byte)(173)))));
             this.picBtn.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.picBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(13)))));
-            this.picBtn.Location = new System.Drawing.Point(644, 203);
+            this.picBtn.Location = new System.Drawing.Point(643, 249);
             this.picBtn.Margin = new System.Windows.Forms.Padding(2);
             this.picBtn.Name = "picBtn";
             this.picBtn.Size = new System.Drawing.Size(125, 63);
@@ -254,12 +255,22 @@
             this.picBtn.UseVisualStyleBackColor = false;
             this.picBtn.Click += new System.EventHandler(this.picBtn_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(643, 203);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(125, 21);
+            this.comboBox1.TabIndex = 19;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(249)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 466);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.picBtn);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.grid);
@@ -307,5 +318,6 @@
         private System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button picBtn;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

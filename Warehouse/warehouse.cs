@@ -39,6 +39,7 @@ namespace Warehouse
                 foreach (DataRow nimetus in dt_kat.Rows)
                 {
                     category_box.Items.Add(nimetus["Cat_Name"]);
+                    comboBox1.Items.Add(nimetus["Cat_Name"]);
                 }
                 i -= 2; // ©Kevin
             }
@@ -200,6 +201,27 @@ namespace Warehouse
             }
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\AppData\WarehouseDB_1.mdf; Integrated Security = True"; // Replace with your actual connection string
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT Name,Quantity,Price, t2.Cat_Name, Picture FROM Products t1 INNER JOIN Category t2 ON t1.Category_Id = t2.Id WHERE Cat_Name = @SearchTerm";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@SearchTerm", comboBox1.Text);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        grid.DataSource = dataTable; // Assuming dataGridView1 is a DataGridView control
+                    }
+                }
+            }
+        } // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin
+
         private void Delete_Cat_Click(object sender, EventArgs e)
         {
             if (category_box.Text == "")
@@ -235,13 +257,10 @@ namespace Warehouse
         string category_boxError = ""; // ©Kevin
         private void grid_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            IdProduct = (int)grid.Rows[e.RowIndex].Cells[0].Value;
-            product_box.Text = grid.Rows[e.RowIndex].Cells[1].Value.ToString();
-            quantity_box.Text = grid.Rows[e.RowIndex].Cells[2].Value.ToString();
-            price_box.Text = grid.Rows[e.RowIndex].Cells[3].Value.ToString();
-            string v = grid.Rows[e.RowIndex].Cells[5].Value.ToString();
-            category_box.Text = category_boxError; // ©Kevin
-            category_box.SelectedIndex = Int32.Parse(v) - 1;
+            product_box.Text = grid.Rows[e.RowIndex].Cells[0].Value.ToString();
+            quantity_box.Text = grid.Rows[e.RowIndex].Cells[1].Value.ToString();
+            price_box.Text = grid.Rows[e.RowIndex].Cells[2].Value.ToString();
+            category_box.Text = grid.Rows[e.RowIndex].Cells[3].Value.ToString();
             try
             {
                 pictureBox.Image = Image.FromFile(@"..\..\images\" + grid.Rows[e.RowIndex].Cells[4].Value.ToString());
