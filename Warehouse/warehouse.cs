@@ -17,7 +17,7 @@ namespace Warehouse
     public partial class warehouse : Form
     {
         string connectPath = System.Environment.CurrentDirectory+ "\\AppData\\WarehouseDB_1.mdf";
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\AppData\WarehouseDB_1.mdf;Integrated Security=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\PC\Source\Repos\Warehouse\Warehouse\AppData\WarehouseDB_1.mdf;Integrated Security=True");
         SqlCommand cmd, cmdcheckId, cmdcheckCat_Name, cmdCheck;
         SqlDataAdapter adapter_toode, adapter_kat;
         OpenFileDialog piltValiDialog;
@@ -39,7 +39,7 @@ namespace Warehouse
                 foreach (DataRow nimetus in dt_kat.Rows)
                 {
                     category_box.Items.Add(nimetus["Cat_Name"]);
-                    comboBox1.Items.Add(nimetus["Cat_Name"]);
+                    //comboBox1.Items.Add(nimetus["Cat_Name"]);
                 }
                 i -= 2; // ©Kevin
             }
@@ -50,7 +50,7 @@ namespace Warehouse
         {
             connect.Open();
             DataTable dt_toode = new DataTable();
-            adapter_toode = new SqlDataAdapter("SELECT Name,Quantity,Price, t2.Cat_Name, Picture FROM Products t1 INNER JOIN Category t2 ON t1.Category_Id = t2.Id", connect);
+            adapter_toode = new SqlDataAdapter("SELECT * FROM Products", connect);
             adapter_toode.Fill(dt_toode);
             grid.DataSource = dt_toode;
 
@@ -177,13 +177,13 @@ namespace Warehouse
             {
                 try
                 {
-                    cmd = new SqlCommand("INSERT INTO Products (Name,Quantity,Price,Picture,Category_Id)" +
-                        " VALUES (@name,@quant,@price,@picture,@cat)", connect);
+                    cmd = new SqlCommand("INSERT INTO Products (Name,Quantity,Price,Category_Id)" +
+                        " VALUES (@name,@quant,@price,@cat)", connect);
                     connect.Open();
                     cmd.Parameters.AddWithValue("@name", product_box.Text);
                     cmd.Parameters.AddWithValue("@quant", quantity_box.Text);
                     cmd.Parameters.AddWithValue("@price", price_box.Value.ToString().Replace(",", "."));
-                    cmd.Parameters.AddWithValue("@picture", product_box.Text+".png");
+                    //cmd.Parameters.AddWithValue("@picture", product_box.Text+".jpg");
                     cmd.Parameters.AddWithValue("@cat", category_box.SelectedIndex + 1);
                     cmd.ExecuteNonQuery();
                     connect.Close();
@@ -200,27 +200,26 @@ namespace Warehouse
                 MessageBox.Show("Enter corrrect values");
             }
         }
+        //Sorting grid
+        //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    using (SqlConnection connection = connect)
+        //    {
+        //        string query = "SELECT Id,Name,Quantity,Price, t2.Cat_Name, Picture FROM Products t1 INNER JOIN Category t2 ON t1.Category_Id = t2.Id WHERE Cat_Name = @SearchTerm";
+        //        using (SqlCommand command = new SqlCommand(query, connection))
+        //        {
+        //            command.Parameters.AddWithValue("@SearchTerm", comboBox1.Text);
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\AppData\WarehouseDB_1.mdf; Integrated Security = True"; // Replace with your actual connection string
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = "SELECT Name,Quantity,Price, t2.Cat_Name, Picture FROM Products t1 INNER JOIN Category t2 ON t1.Category_Id = t2.Id WHERE Cat_Name = @SearchTerm";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@SearchTerm", comboBox1.Text);
+        //            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+        //            {
+        //                DataTable dataTable = new DataTable();
+        //                adapter.Fill(dataTable);
 
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-
-                        grid.DataSource = dataTable; // Assuming dataGridView1 is a DataGridView control
-                    }
-                }
-            }
-        } // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin
+        //                grid.DataSource = dataTable; // Assuming dataGridView1 is a DataGridView control
+        //            }
+        //        }
+        //    }
+        //} // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin // ©Kevin
 
         private void Delete_Cat_Click(object sender, EventArgs e)
         {
@@ -257,10 +256,13 @@ namespace Warehouse
         string category_boxError = ""; // ©Kevin
         private void grid_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            product_box.Text = grid.Rows[e.RowIndex].Cells[0].Value.ToString();
-            quantity_box.Text = grid.Rows[e.RowIndex].Cells[1].Value.ToString();
-            price_box.Text = grid.Rows[e.RowIndex].Cells[2].Value.ToString();
-            category_box.Text = grid.Rows[e.RowIndex].Cells[3].Value.ToString();
+            IdProduct = (int)grid.Rows[e.RowIndex].Cells[0].Value;
+            product_box.Text = grid.Rows[e.RowIndex].Cells[1].Value.ToString();
+            quantity_box.Text = grid.Rows[e.RowIndex].Cells[2].Value.ToString();
+            price_box.Text = grid.Rows[e.RowIndex].Cells[3].Value.ToString();
+            string v = grid.Rows[e.RowIndex].Cells[5].Value.ToString();
+            category_box.Text = category_boxError; // ©Kevin
+            category_box.SelectedIndex = Int32.Parse(v) - 1;
             try
             {
                 pictureBox.Image = Image.FromFile(@"..\..\images\" + grid.Rows[e.RowIndex].Cells[4].Value.ToString());

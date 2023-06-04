@@ -46,7 +46,6 @@
             this.grid = new System.Windows.Forms.DataGridView();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.picBtn = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantity_box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price_box)).BeginInit();
@@ -255,22 +254,12 @@
             this.picBtn.UseVisualStyleBackColor = false;
             this.picBtn.Click += new System.EventHandler(this.picBtn_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(643, 203);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(125, 21);
-            this.comboBox1.TabIndex = 19;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(249)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(800, 466);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.picBtn);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.grid);
@@ -318,6 +307,5 @@
         private System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button picBtn;
-        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

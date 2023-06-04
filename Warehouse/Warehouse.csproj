@@ -98,11 +98,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppData\WarehouseDB_1.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="AppData\WarehouseDB_1.mdf" />
     <Content Include="AppData\WarehouseDB_1_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>WarehouseDB_1.mdf</DependentUpon>
     </Content>
     <Content Include="images\Info.png" />
